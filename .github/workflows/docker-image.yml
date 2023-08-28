@@ -19,6 +19,10 @@ jobs:
       uses: docker/metadata-action@v4
       with:
         images: ${{ github.repository }}
+        tags: |
+          type=schedule,pattern={{date 'YYYYMMDD'}}
+          type=raw,value=latest,enable={{is_default_branch}}
+          type=raw,enable=true,priority=200,prefix=,suffix=,value=gh-${{ github.ref_name }}-${{ github.run_number }}
 
     - name: Login to Docker Hub
       if: github.ref == 'refs/heads/main'
