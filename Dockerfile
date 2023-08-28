@@ -1,4 +1,4 @@
-FROM maven:3.9-eclipse-temurin-11
+FROM maven:3.9-eclipse-temurin-17
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
 
